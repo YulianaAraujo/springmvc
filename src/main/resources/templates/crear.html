@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultrag.net.nz/thymeleaf/layout">
+    <head>
+        <title>Create Product</title>    
+    </head>
+    <body>
+        <div layout:fragment="content" class="row">
+            <div class="col-xs-8 col-md-8">
+                <h3>
+                    <a href="/producto" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list"></span> Product</a>
+                </h3>
+                <h2>Crear producto</h2>
+                <form action="/guardar">
+                    <div class="form-group">
+                        <label for="email">Nombre Producto:</label>
+                        <input type="text" class="form-control" name="prodNombre"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Descripción Producto:</label>
+                        <textarea class="form-control" name="prodDesc" cols="60" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Precio Producto:</label>
+                        <input type="number" class="form-control" name="prodPrecio"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">URL Imagen Producto:</label>
+                        <input type="url" class="form-control" name="prodImagen"/>
+                    </div>
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

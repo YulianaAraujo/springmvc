@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultrag.net.nz/thymeleaf/layout">
+    <head>
+        <title>Show Product</title>    
+    </head>
+    <body>
+        <div layout:fragment="content" class="row">
+            <div class="col-xs-8 col-md-8">
+                <h3>
+                    <a href="/producto" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list"></span> Product</a>
+                </h3>        
+                <h2 th:text="${producto.prodNombre}"></h2>
+                <h2><img th:src="${producto.prodImagen}" width="200"/></h2>
+                <dl class="list">
+                    <dt>Product Description</dt>
+                    <dd th:text="${producto.prodDesc}"></dd>
+                    <dt>Product Price</dt>
+                    <dd th:text="${producto.prodPrecio}"></dd>     
+                </dl>
+                <form action="/borrar">
+                    <input type="hidden" name="id" th:value="${producto.id}"/>
+                    <h2><input type="submit" class="btn btn-danger" value="Borrar" onclick="return confirm('Está seguro?');" />
+                        <a th:href="@{'/modificar/' + ${producto.id}}" class="btn btn-warning">Editar</a></h2>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

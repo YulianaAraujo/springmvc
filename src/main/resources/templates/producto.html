@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultrag.net.nz/thymeleaf/layout"
+      layout:decorate="default">
+    <head>
+        <title>Products List</title>    
+    </head>
+    <body>
+        <div layout:fragment="content" class="row">
+            <div class="col-xs-8 col-md-8">
+                <h3>
+                    <a href="/crear" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list"></span> Product</a>
+                </h3>
+                <h2>Product List</h2>
+                <div class="table-responsive">
+                    <table class="table" id="product-table">
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Product Description</th>
+                                <th>Product Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="producto : ${productos}">
+                                <td><a th:text="${producto.prodNombre}" th:href="@{'/mostrar/' + ${producto.id}}"></a></td>
+                                <td th:text="${producto.prodDesc}"></td>
+                                <td th:text="${producto.prodPrecio}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
